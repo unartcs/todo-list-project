@@ -44,7 +44,7 @@ export default function mainLogic() {
     }
     mainFunct.generateSamples();
     const testProject = createNewProject('Test')
-    const testTask = createNewTask('Random', 'Do random stuff', 'med', 'Test','10/12/2022')
+    const testTask = createNewTask('Random', 'Do random stuff', 'med', 'Test')
     return {
         createNewTask: createNewTask,
         createNewProject: createNewProject,

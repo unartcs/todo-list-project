@@ -20,7 +20,7 @@ export default function domController() {
     // const mainFunct = mainFunction();
     function updateProjectLi(projectsArray) {
         projectList = projectsArray
-        const projectUL = document.querySelectorAll('.navbar-container > .navbar-lower-ul > li')
+        const projectUL = document.querySelectorAll('.navbar-lower-ul > li')
         projectUL.forEach(li => {
             li.remove();
         })
@@ -59,14 +59,14 @@ export default function domController() {
                 const taskDiv = document.createElement('div')
                 const taskLi = document.createElement('li')
                 const taskDelButton = document.createElement('button')
-                const taskDate = document.createElement('span')
+                // const taskDate = document.createElement('p')
                 taskLi.innerHTML = task.name
                 taskDelButton.innerHTML = 'X'
-                taskDate.innerHTML = task.dueDate
+                // taskDate.innerHTML = task.dueDate
                 tasksDOM.appendChild(taskDiv)
                 taskDiv.appendChild(taskLi)
                 taskDiv.appendChild(taskDelButton)
-                taskDiv.appendChild(taskDate)
+                // taskDiv.appendChild(taskDate)
                 clickableDeleteButtons.push(taskDelButton)
                 clickableTasks.push(taskLi)
                 switch (task.prio) {
