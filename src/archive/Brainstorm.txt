@@ -1,0 +1,30 @@
+Todo items are gonna have the following properties:
+Title
+Description
+startDate
+dueDate
+Priority
+Notes
+Checklist?
+Should also be apart of a project (category I guess(?))
+
+
+
+
+/////////////////////
+
+
+I think I need to create a Project class and have the notes inside?
+
+
+
+todo1 = new Todo('Clean dishes','Do the dishes','red')
+todo1 = new Project('default')
+
+///////////
+
+
+todoHandler.js - used to create the Todo and edit everything inside of it.
+projectHandler.js - will do the same as the Todo handler
+domHandler.js - will listen to DOM events and use the functions to create the Todo and Assign a project to it?
+uiHandler.js - not sure if I will create this file or have domHandler do all the UI aswell?

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="body-container">
+        <div class="header-container">
+            <h1 class="header-logo">To do List!</h1>
+        </div>
+        <div class="middle-page-container">
+            <div class="navbar-container">
+                <ul class="navbar-upper-ul">
+                    <h2>Tasks</h2>
+                    <li class="all-tasks-button">All Tasks</li>
+                    <li class="today-tasks-button">Todays Tasks</li>
+                    <li class="week-tasks-button">This week Tasks</li>
+                </ul>
+
+                <ul class="navbar-lower-ul">
+                    <h2>Projects</h2>
+                </ul>
+                <div class="navbar-lower-addp">
+                    <button class="new-project-button">Add Project</button>
+                    <form name='add-project-form' class="new-project-form">
+                        <label for="project-name">Project Name:</label>
+                        <input type="text" required name="project-name">
+                        <button class="submit-project-button">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="content-box">
+                    <div class="content-header">
+                        <h2 class="project-title"></h2>
+                    </div>
+                    <div class="tasks-container">
+                        <div class="task-name">Name</div>
+                        <div class="task-date">Due Date</div>
+                        <ul class="task-list">
+                        </ul>
+                        <button class="add-task-button">Add Task</button>
+                        <form name='add-task-form' class="new-task-form">
+                            <label for="task-name">Task Name:</label>
+                            <input type="text" required name="task-name">
+                            <label for="task-desc">Description:</label>
+                            <input type="text" required name="task-desc">
+                            <fieldset>
+                                <label for="prio_button_low">Low: </label>
+                                <input type="radio" id="prio_button_low" name="priority" value="low">
+                                <label for="prio_button_med">Medium: </label>
+                                <input type="radio" id="prio_button_med" name="priority" value="med">
+                                <label for="prio_button_high">High: </label>
+                                <input type="radio" id="prio_button_high" name="priority" value="high">
+                            </fieldset>
+                            <button class="submit-task-button">Add</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+</body>
+
+</html>
