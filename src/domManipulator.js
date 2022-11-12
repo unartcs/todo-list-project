@@ -62,7 +62,6 @@ export default function domController() {
         projectTitle.innerHTML = projectName
         getProjectName.forEach(project => {
             project.tasks.forEach(task => {
-                console.log(`Creating task : ${task}`)
                 const taskDiv = document.createElement('div')
                 const taskLi = document.createElement('li')
                 const taskTitle = document.createElement('span')
@@ -154,7 +153,7 @@ function listenersFunction() {
     const addProjectButton = document.querySelector('.new-project-button')
     const addProjectForm = document.querySelector('.new-project-form')
     const submitProjectButton = document.querySelector('.submit-project-button')
-    const sortByDate = document.querySelector('.task-date')
+    const sortByDateButton = document.querySelector('.task-date')
     addTaskButton.addEventListener('click', function (e) {
         taskFormActive = true;
         addTaskForm.style.visibility = 'visible'
@@ -191,6 +190,31 @@ function listenersFunction() {
         }
 
 
+    })
+    sortByDateButton.addEventListener('click', function (e) {
+        if (activeProject === '' || activeProject === undefined) {
+            activeProject = projectList[projectList.length - 1].name
+        }
+        const result = projectList.filter(item => item.name === activeProject)
+        const projectIndex = projectList.findIndex(obj => {
+            return obj.name === activeProject
+        })
+        function compareNumbers(a, b) {
+            // var c = new Date(a.dueDate).getTime()
+            // var d = new Date(b.dueDate).getTime()
+            // return c-d
+            // if ( a.dueDate > b.dueDate ){
+            //     return -1;
+            //   }
+        }
+        projectList[projectIndex].tasks.forEach(task => {
+            //Sorted by MM/DD/YY (American)
+            console.log(projectList[projectIndex].tasks.sort(function (a, b) {
+                var c = new Date(a.dueDate);
+                var d = new Date(b.dueDate);
+                return c - d;
+            }))
+        })
     })
 
 

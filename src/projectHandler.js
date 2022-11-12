@@ -5,6 +5,7 @@ export default class Project {
     }
     get taskAmount() {
         return this.tasks.length;
+        ///Need to change this to task amount that isnt "checked"
     }
     get taskList() {
         return this.tasks;
