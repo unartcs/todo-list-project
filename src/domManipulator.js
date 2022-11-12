@@ -27,18 +27,24 @@ export default function domController() {
         projectsArray.forEach(project => {
             console.log(project)
             if (project.name != '') {
-                const p = document.createElement('li')
-                p.innerHTML = project.name +  ` (${project.taskAmount})`
-                projectNavbar.appendChild(p)
-                clickableProjects.push(p)
+                const pLi = document.createElement('li')
+                const pName = document.createElement('span')
+                pName.innerHTML = project.name
+                projectNavbar.appendChild(pLi)
+                pLi.appendChild(pName)
+                const pCount = document.createElement('span')
+                pCount.innerHTML = ` (${project.taskAmount})`
+                pLi.appendChild(pCount)
+                clickableProjects.push(pName)
+
             }
             else { return }
         })
         clickableProjects.forEach(project => {
             project.addEventListener('click', function () {
-                console.log(project.innerHTML)
-                updateTasksLi(project.innerHTML)
+                console.log(project)
                 activeProject = project.innerHTML
+                updateTasksLi(activeProject)
                 ///Change right side of the page here
             })
         })
@@ -56,19 +62,23 @@ export default function domController() {
         projectTitle.innerHTML = projectName
         getProjectName.forEach(project => {
             project.tasks.forEach(task => {
+                console.log(`Creating task : ${task}`)
                 const taskDiv = document.createElement('div')
                 const taskLi = document.createElement('li')
+                const taskTitle = document.createElement('span')
                 const taskDelButton = document.createElement('button')
-                // const taskDate = document.createElement('p')
-                taskLi.innerHTML = task.name
+                const taskDate = document.createElement('p')
+                // taskLi.innerHTML = task.name
+                taskTitle.innerHTML = task.name
                 taskDelButton.innerHTML = 'X'
-                // taskDate.innerHTML = task.dueDate
+                taskDate.innerHTML = task.dueDate
                 tasksDOM.appendChild(taskDiv)
                 taskDiv.appendChild(taskLi)
                 taskDiv.appendChild(taskDelButton)
-                // taskDiv.appendChild(taskDate)
+                taskLi.appendChild(taskTitle)
+                taskLi.appendChild(taskDate)
                 clickableDeleteButtons.push(taskDelButton)
-                clickableTasks.push(taskLi)
+                clickableTasks.push(taskTitle)
                 switch (task.prio) {
                     case 'low':
                         taskLi.style.backgroundColor = 'yellow';
